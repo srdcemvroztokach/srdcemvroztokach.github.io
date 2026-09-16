@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Srdcem v Roztokách | Plakát A1 na šířku</title>
+  <style>
+    @font-face {
+      font-family: "Bebas Neue Pro";
+      src: url("fonts/Bebas-Neue-Pro-Regular-BF66cf3d7814160.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Bebas Neue Pro Expanded";
+      src: url("fonts/Bebas-Neue-Pro-Expanded-ExtraBold-BF66cf3d793166e.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+    }
+
+    :root {
+      --purple: #7440cc;
+      --purple-dark: #5426a4;
+      --green: #00e590;
+      --paper: #fffdf0;
+      --ink: #20152f;
+      --muted: #655d6f;
+      --line: rgba(84, 38, 164, 0.24);
+      --font-body: "Bebas Neue Pro", sans-serif;
+      --font-heading: "Bebas Neue Pro Expanded", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #ded9e5;
+      font-family: var(--font-body);
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .poster {
+      container-type: inline-size;
+      position: relative;
+      display: grid;
+      grid-template-rows: 18.5% 71.5% 10%;
+      width: min(calc(100vw - 48px), 1500px);
+      aspect-ratio: 841 / 594;
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 24px 70px rgba(32, 21, 47, 0.24);
+    }
+
+    .masthead {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      overflow: hidden;
+      padding: 2.2cqw 3.2cqw;
+      color: var(--paper);
+      background: var(--purple);
+    }
+
+    .masthead::after {
+      position: absolute;
+      right: -3cqw;
+      bottom: -8cqw;
+      width: 24cqw;
+      height: 11cqw;
+      border: 0.42cqw solid rgba(255, 253, 240, 0.9);
+      border-radius: 6cqw;
+      content: "";
+      transform: rotate(-7deg);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 7.3cqw minmax(0, 1fr);
+      align-items: center;
+      gap: 1.5cqw;
+    }
+
+    .brand img {
+      display: block;
+      width: 7.3cqw;
+      height: auto;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font: 800 6.15cqw/0.84 var(--font-heading);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: 0.75cqw 0 0;
+      color: rgba(255, 253, 240, 0.9);
+      font-size: 1.65cqw;
+      line-height: 1;
+    }
+
+    .election {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: end;
+      gap: 0.65cqw;
+      text-align: right;
+    }
+
+    .election strong {
+      padding: 0.7cqw 1.25cqw 0.55cqw;
+      color: var(--purple-dark);
+      background: var(--green);
+      font: 800 2.25cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .election span {
+      font: 800 1.55cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 29% 37% 34%;
+      min-height: 0;
+      padding: 1.55cqw 1.7cqw 1.25cqw;
+      gap: 1.25cqw;
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgba(116, 64, 204, 0.025) 50%, transparent 50.2%) 0 0 / 7.2cqw 7.2cqw,
+        var(--paper);
+    }
+
+    .panel {
+      position: relative;
+      min-width: 0;
+      padding: 1.6cqw 1.35cqw 1.2cqw;
+      border: 0.12cqw solid var(--line);
+      background: rgba(255, 253, 240, 0.86);
+    }
+
+    .panel-title {
+      position: absolute;
+      top: -0.62cqw;
+      left: 1.1cqw;
+      margin: 0;
+      padding: 0.65cqw 1.1cqw 0.5cqw;
+      color: var(--paper);
+      background: var(--purple);
+      font: 800 2cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .panel-title.green {
+      color: var(--purple-dark);
+      background: var(--green);
+    }
+
+    .candidates {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      height: 100%;
+      margin: 0;
+      padding: 1.8cqw 0 0;
+      gap: 0.7cqw;
+      list-style: none;
+      counter-reset: candidate;
+    }
+
+    .candidates li {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+      overflow: hidden;
+      border: 0.09cqw solid var(--line);
+      background: white;
+      counter-increment: candidate;
+    }
+
+    .candidate-number {
+      display: grid;
+      min-height: 3.55cqw;
+      padding: 0.45cqw;
+      color: var(--paper);
+      background: var(--purple);
+      place-items: center;
+      font: 800 2.1cqw/1 var(--font-heading);
+    }
+
+    .candidate-number::before {
+      content: counter(candidate, decimal-leading-zero);
+    }
+
+    .candidate-name {
+      display: grid;
+      padding: 0.58cqw 0.35cqw;
+      place-items: center;
+      font: 800 1.22cqw/1.05 var(--font-heading);
+      text-align: center;
+    }
+
+    .priorities {
+      display: grid;
+      height: 100%;
+      margin: 0;
+      padding: 1.45cqw 0 0;
+      list-style: none;
+      counter-reset: priority;
+    }
+
+    .priorities li {
+      display: grid;
+      grid-template-columns: 4.2cqw minmax(0, 1fr);
+      align-items: center;
+      padding: 0.65cqw 0;
+      border-bottom: 0.08cqw solid var(--line);
+      gap: 0.85cqw;
+      counter-increment: priority;
+    }
+
+    .priorities li:last-child {
+      border-bottom: 0;
+    }
+
+    .priorities li::before {
+      display: grid;
+      width: 3.55cqw;
+      height: 3.55cqw;
+      color: var(--purple-dark);
+      background: var(--green);
+      border-radius: 50%;
+      content: "0" counter(priority);
+      place-items: center;
+      font: 800 1.55cqw/1 var(--font-heading);
+    }
+
+    .priorities h3 {
+      margin: 0 0 0.2cqw;
+      color: var(--purple-dark);
+      font: 800 1.55cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .priorities p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.13cqw;
+      line-height: 1.15;
+    }
+
+    .voice-panel {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 1.1cqw;
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .poll,
+    .ideas {
+      position: relative;
+      border: 0.12cqw solid var(--line);
+      background: rgba(255, 253, 240, 0.92);
+    }
+
+    .poll {
+      padding: 1.65cqw 1.25cqw 1cqw;
+    }
+
+    .poll h2,
+    .ideas h2 {
+      position: absolute;
+      top: -0.62cqw;
+      left: 1cqw;
+      margin: 0;
+      padding: 0.65cqw 1.05cqw 0.5cqw;
+      color: var(--paper);
+      background: var(--purple);
+      font: 800 1.85cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .poll > p {
+      margin: 0.65cqw 0 0.7cqw;
+      color: var(--purple-dark);
+      font: 800 1.28cqw/1 var(--font-heading);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55cqw;
+    }
+
+    .choice {
+      min-height: 3.6cqw;
+      padding: 0.55cqw;
+      border: 0.08cqw solid var(--line);
+      color: var(--purple-dark);
+      background: white;
+      font: 800 1cqw/1.05 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .choice::before {
+      display: inline-block;
+      width: 0.85cqw;
+      height: 0.85cqw;
+      margin-right: 0.38cqw;
+      border: 0.09cqw solid var(--purple);
+      content: "";
+      vertical-align: -0.08cqw;
+    }
+
+    .ideas {
+      display: flex;
+      flex-direction: column;
+      padding: 3.2cqw 1.2cqw 1cqw;
+    }
+
+    .ideas h2 {
+      color: var(--purple-dark);
+      background: var(--green);
+    }
+
+    .ideas p {
+      margin: 0 0 0.5cqw;
+      color: var(--muted);
+      font-size: 1.05cqw;
+    }
+
+    .writing-lines {
+      flex: 1;
+      min-height: 0;
+      background: repeating-linear-gradient(to bottom, transparent 0 2.35cqw, rgba(84, 38, 164, 0.2) 2.35cqw 2.43cqw);
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      padding: 0.8cqw 2.4cqw;
+      color: var(--paper);
+      background: var(--purple-dark);
+      gap: 2cqw;
+    }
+
+    .footer-slogan {
+      margin: 0;
+      color: var(--green);
+      font: 800 2.15cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .footer-slogan small {
+      display: block;
+      margin-top: 0.35cqw;
+      color: rgba(255, 253, 240, 0.75);
+      font: 400 1.05cqw/1 var(--font-body);
+      text-transform: none;
+    }
+
+    .qr-link {
+      display: grid;
+      grid-template-columns: 5.7cqw auto;
+      align-items: center;
+      color: var(--paper);
+      gap: 0.8cqw;
+      text-decoration: none;
+    }
+
+    .qr-link img {
+      display: block;
+      width: 5.7cqw;
+      height: 5.7cqw;
+      padding: 0.2cqw;
+      background: white;
+    }
+
+    .qr-link strong,
+    .qr-link span {
+      display: block;
+    }
+
+    .qr-link strong {
+      color: var(--green);
+      font: 800 1.45cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .qr-link span {
+      margin-top: 0.28cqw;
+      font-size: 1.05cqw;
+      line-height: 1;
+    }
+
+    .legal {
+      margin: 0;
+      max-width: 19cqw;
+      color: rgba(255, 253, 240, 0.68);
+      font-size: 0.85cqw;
+      line-height: 1.15;
+      text-align: right;
+    }
+
+    /* Velkoformátová sazba: portréty vlevo, program a QR vpravo. */
+    .poster {
+      grid-template-rows: 17.5% 82.5%;
+    }
+
+    .masthead {
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 1.75cqw 2.5cqw;
+      border-bottom: 0.55cqw solid var(--green);
+    }
+
+    .masthead::after {
+      right: 14cqw;
+      bottom: -7.8cqw;
+      width: 18cqw;
+      height: 9cqw;
+    }
+
+    .brand {
+      grid-template-columns: 6.5cqw minmax(0, 1fr);
+      gap: 1.25cqw;
+    }
+
+    .brand img {
+      width: 6.5cqw;
+    }
+
+    .brand h1 {
+      font-size: 5.7cqw;
+    }
+
+    .brand p {
+      margin-top: 0.45cqw;
+      font-size: 1.45cqw;
+    }
+
+    .header-cta {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 7.2cqw auto;
+      align-items: center;
+      color: var(--paper);
+      gap: 0.85cqw;
+      text-decoration: none;
+    }
+
+    .header-cta img {
+      display: block;
+      width: 7.2cqw;
+      height: 7.2cqw;
+      padding: 0.25cqw;
+      background: white;
+    }
+
+    .header-cta strong,
+    .header-cta span {
+      display: block;
+    }
+
+    .header-cta strong {
+      color: var(--green);
+      font: 800 1.8cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .header-cta span {
+      margin-top: 0.38cqw;
+      font-size: 1.12cqw;
+      line-height: 1;
+    }
+
+    .board {
+      grid-template-columns: minmax(0, 1.82fr) minmax(0, 0.88fr);
+      padding: 1.45cqw 1.7cqw 1.55cqw;
+      gap: 1.35cqw;
+    }
+
+    .candidate-panel {
+      padding: 2.15cqw 1.1cqw 1cqw;
+      border: 0;
+      background: transparent;
+    }
+
+    .candidate-panel .panel-title {
+      top: 0;
+      left: 0;
+      padding-left: 1.2cqw;
+      padding-right: 1.2cqw;
+    }
+
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      gap: 0.72cqw;
+      list-style: none;
+      counter-reset: candidate;
+    }
+
+    .candidate-card {
+      position: relative;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-width: 0;
+      overflow: hidden;
+      border: 0.1cqw solid rgba(84, 38, 164, 0.26);
+      background: white;
+      counter-increment: candidate;
+      grid-column: span 2;
+    }
+
+    .candidate-card:nth-child(6) {
+      grid-column: 2 / span 2;
+    }
+
+    .candidate-card:nth-child(7) {
+      grid-column: 4 / span 2;
+    }
+
+    .candidate-card:nth-child(8) {
+      grid-column: 6 / span 2;
+    }
+
+    .candidate-card:nth-child(9) {
+      grid-column: 8 / span 2;
+    }
+
+    .portrait {
+      position: relative;
+      display: grid;
+      min-height: 0;
+      color: rgba(84, 38, 164, 0.38);
+      background-color: #eae5f0;
+      background-image: var(--photo, none);
+      background-position: center 18%;
+      background-size: cover;
+      place-items: center;
+      font: 800 0.9cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .portrait::before {
+      position: absolute;
+      top: 0.6cqw;
+      left: 0.6cqw;
+      display: grid;
+      width: 2.45cqw;
+      height: 2.45cqw;
+      color: var(--paper);
+      background: var(--purple);
+      content: counter(candidate, decimal-leading-zero);
+      place-items: center;
+      font: 800 1.15cqw/1 var(--font-heading);
+    }
+
+    .candidate-copy {
+      min-height: 5.15cqw;
+      padding: 0.48cqw 0.65cqw 0.55cqw;
+      border-top: 0.32cqw solid var(--green);
+    }
+
+    .candidate-copy h3 {
+      margin: 0;
+      color: var(--purple-dark);
+      font: 800 1.02cqw/1.02 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .candidate-copy p {
+      margin: 0.35cqw 0 0;
+      color: var(--muted);
+      font-size: 0.82cqw;
+      line-height: 1.08;
+    }
+
+    .candidate-card--statement {
+      position: relative;
+      display: flex;
+      align-items: end;
+      border: 0;
+      color: var(--paper);
+      background: var(--purple);
+    }
+
+    .candidate-card--statement::before {
+      position: absolute;
+      top: 1.15cqw;
+      left: 1.05cqw;
+      color: var(--green);
+      content: counter(candidate, decimal-leading-zero);
+      font: 800 5.4cqw/0.8 var(--font-heading);
+    }
+
+    .candidate-card--statement::after {
+      position: absolute;
+      top: 1.15cqw;
+      right: 0.75cqw;
+      width: 6.8cqw;
+      height: 6.8cqw;
+      border: 0.28cqw solid rgba(255, 253, 240, 0.28);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .candidate-card--statement .candidate-copy {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      padding: 0.9cqw;
+      border-top: 0;
+      background: transparent;
+    }
+
+    .candidate-card--statement .candidate-copy h3 {
+      width: 100%;
+      padding-top: 0.7cqw;
+      border-top: 0.34cqw solid var(--green);
+      color: var(--paper);
+      font-size: 1.2cqw;
+    }
+
+    .candidate-card--statement .candidate-copy p {
+      position: absolute;
+      top: 8.7cqw;
+      right: 0.9cqw;
+      left: 0.9cqw;
+      margin: 0;
+      color: var(--green);
+      font: 800 1.22cqw/1.12 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .program-panel {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 0;
+      padding: 2.15cqw 1.35cqw 1.05cqw;
+      border: 0.12cqw solid var(--purple);
+      background: rgba(255, 253, 240, 0.94);
+    }
+
+    .program-panel .panel-title {
+      top: -0.65cqw;
+      left: 1.1cqw;
+    }
+
+    .program-intro {
+      margin: 0.3cqw 0 0.5cqw;
+      color: var(--purple-dark);
+      font: 800 1.35cqw/1.05 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .program-panel .priorities {
+      padding: 0;
+    }
+
+    .program-panel .priorities li {
+      grid-template-columns: 3.5cqw minmax(0, 1fr);
+      padding: 0.55cqw 0;
+      gap: 0.68cqw;
+    }
+
+    .program-panel .priorities li::before {
+      width: 2.95cqw;
+      height: 2.95cqw;
+      font-size: 1.25cqw;
+    }
+
+    .program-panel .priorities h3 {
+      font-size: 1.38cqw;
+    }
+
+    .program-panel .priorities p {
+      font-size: 1cqw;
+    }
+
+    .campaign-callout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 5.8cqw;
+      align-items: center;
+      margin: 0.65cqw -1.35cqw -1.05cqw;
+      padding: 0.82cqw 1.35cqw;
+      color: var(--paper);
+      background: var(--purple-dark);
+      gap: 0.9cqw;
+    }
+
+    .campaign-callout strong {
+      display: block;
+      color: var(--green);
+      font: 800 1.65cqw/1 var(--font-heading);
+      text-transform: uppercase;
+    }
+
+    .campaign-callout span {
+      display: block;
+      margin-top: 0.3cqw;
+      font-size: 1.03cqw;
+      line-height: 1.1;
+    }
+
+    .campaign-callout img {
+      display: block;
+      width: 5.8cqw;
+      height: 5.8cqw;
+    }
+
+    .poster-legal {
+      position: absolute;
+      right: 1.7cqw;
+      bottom: 0.35cqw;
+      margin: 0;
+      color: rgba(32, 21, 47, 0.55);
+      font-size: 0.66cqw;
+      line-height: 1;
+    }
+
+    @page {
+      size: 841mm 594mm;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 841mm;
+        height: 594mm;
+      }
+
+      body {
+        display: block;
+        padding: 0;
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .poster {
+        width: 841mm;
+        height: 594mm;
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      body {
+        padding: 0;
+      }
+
+      .poster {
+        width: 100vw;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <header class="masthead">
+      <div class="brand">
+        <img src="heart.svg" alt="">
+        <div>
+          <h1>Srdcem v&nbsp;Roztokách</h1>
+          <p>Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec.</p>
+        </div>
+      </div>
+      <a class="header-cta" href="https://pi2.cz/srdcemvroztokach" aria-label="Celý program na pi2.cz/srdcemvroztokach">
+        <img src="qr-volby.svg" alt="">
+        <span><strong>Celý program</strong><span>pi2.cz/srdcemvroztokach</span></span>
+      </a>
+    </header>
+
+    <div class="board">
+      <section class="panel candidate-panel" aria-labelledby="a1-candidates-title">
+        <h2 class="panel-title green" id="a1-candidates-title">Naši kandidáti</h2>
+        <ol class="candidate-grid">
+          <li class="candidate-card"><div class="portrait">Fotografie</div><div class="candidate-copy"><h3>Ellen Jana Reeseová</h3><p>Naslouchat lidem, rozhodovat s&nbsp;rozvahou</p></div></li>
+          <li class="candidate-card"><div class="portrait">Fotografie</div><div class="candidate-copy"><h3>Bc. Petr Tolman</h3><p>Bezpečné cesty a&nbsp;fungující infrastruktura</p></div></li>
+          <li class="candidate-card"><div class="portrait">Fotografie</div><div class="candidate-copy"><h3>Ing. Lenka Peterková</h3><p>Veřejný prostor pro každodenní život</p></div></li>
+          <li class="candidate-card"><div class="portrait">Fotografie</div><div class="candidate-copy"><h3>Bc. Sabina Horská</h3><p>Obec dostupná opravdu všem generacím</p></div></li>
+          <li class="candidate-card"><div class="portrait">Fotografie</div><div class="candidate-copy"><h3>Ashley Reese</h3><p>Péče o&nbsp;krajinu bez zkratek</p></div></li>
+          <li class="candidate-card candidate-card--statement"><div class="candidate-copy"><h3>Štěpánka Vorlíčková</h3><p>Živá obec plná dobrých setkávání</p></div></li>
+          <li class="candidate-card candidate-card--statement"><div class="candidate-copy"><h3>Michal Tolman</h3><p>Moderní služby blízko každému občanovi</p></div></li>
+          <li class="candidate-card candidate-card--statement"><div class="candidate-copy"><h3>Eva Haehnelová</h3><p>Rozumné hospodaření s&nbsp;obecními penězi</p></div></li>
+          <li class="candidate-card candidate-card--statement"><div class="candidate-copy"><h3>Miloslav Vanča</h3><p>Spolupráce, která přináší konkrétní výsledky</p></div></li>
+        </ol>
+      </section>
+
+      <section class="panel program-panel" aria-labelledby="a1-program-title">
+        <h2 class="panel-title" id="a1-program-title">Pět priorit pro Roztoky</h2>
+        <p class="program-intro">Ať to tu žije!</p>
+        <ol class="priorities">
+          <li><div><h3>Doprava, bezpečnost a&nbsp;infrastruktura</h3><p>Zklidnění dopravy, bezpečné chodníky, údržba sítí a&nbsp;rychlejší internet.</p></div></li>
+          <li><div><h3>Veřejný prostor a&nbsp;rozvoj</h3><p>Nový územní plán, revitalizace sídliště a&nbsp;areálu u&nbsp;jezu, parkování a&nbsp;zeleň.</p></div></li>
+          <li><div><h3>Odpady, energie a&nbsp;příroda</h3><p>Méně odpadu, lepší třídění, fotovoltaika na škole a&nbsp;podpora dešťové vody.</p></div></li>
+          <li><div><h3>Spolkový život a&nbsp;volný čas</h3><p>Nová sportoviště pro děti, přístupné fotbalové hřiště a&nbsp;obnova tradičních akcí.</p></div></li>
+          <li><div><h3>Samospráva a&nbsp;péče</h3><p>Přehlednější web, zapojení občanů, digitální vzdělávání a&nbsp;péče o&nbsp;seniory.</p></div></li>
+        </ol>
+        <div class="campaign-callout">
+          <div><strong>Komunální volby 2026</strong><span>Společně pro obec, kde se dobře žije.</span></div>
+          <img src="heart.svg" alt="">
+        </div>
+      </section>
+    </div>
+    <p class="poster-legal">Politická reklama | Zadavatel/zpracovatel: Srdcem v&nbsp;Roztokách</p>
+  </main>
+</body>
+</html>
