@@ -202,7 +202,7 @@
     }
 
     .hero-inner > div:first-child {
-      width: calc(100% - 300px);
+      width: calc(100% - 250px);
       min-width: 0;
     }
 
@@ -219,28 +219,6 @@
     .hero-social {
       display: flex;
       gap: 10px;
-    }
-
-    .event-link {
-      display: block;
-      width: 198px;
-      overflow: hidden;
-      border: 3px solid var(--accent);
-      background: var(--forest-dark);
-      box-shadow: 0 14px 32px rgba(32, 21, 47, 0.25);
-      transition: transform 180ms ease, box-shadow 180ms ease;
-    }
-
-    .event-link img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .event-link:hover,
-    .event-link:focus-visible {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(32, 21, 47, 0.34);
     }
 
     .survey-link {
@@ -726,10 +704,6 @@
         margin-top: 30px;
       }
 
-      .event-link {
-        width: min(280px, 100%);
-      }
-
       .survey-link {
         width: min(280px, 100%);
       }
@@ -802,11 +776,6 @@
 
       .hero-social a::after {
         display: none;
-      }
-
-      .event-link {
-        width: min(197px, 100%);
-        margin-top: 9px;
       }
 
       .survey-link {
@@ -987,16 +956,13 @@
             <a class="hero-link hero-link-secondary" href="#kandidati">Naši kandidáti</a>
           </div>
         </div>
-        <aside class="hero-side" aria-label="Kontakty a aktuální událost">
+        <aside class="hero-side" aria-label="Kontakty a sousedská anketa">
           <nav class="hero-social" aria-label="Kontakty a sociální sítě">
             <a href="https://chat.whatsapp.com/J9njXHxneW0FMwXLIEjQ32" target="_blank" rel="noopener noreferrer" aria-label="Sousedská komunita na WhatsApp" data-tooltip="Sousedská komunita"><i class="fa-solid fa-user-group" aria-hidden="true"></i></a>
             <a href="https://wa.me/420736197580" target="_blank" rel="noopener noreferrer" aria-label="Napište lídryni přes WhatsApp" data-tooltip="Napište lídryni přes WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/ellen.reeseova" target="_blank" rel="noopener noreferrer" aria-label="Instagram Ellen Reeseové" data-tooltip="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             <a href="https://www.facebook.com/purrplingcat" target="_blank" rel="noopener noreferrer" aria-label="Facebook Ellen Reeseové" data-tooltip="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
           </nav>
-          <a class="event-link" href="https://www.facebook.com/events/2111149402807530" target="_blank" rel="noopener noreferrer" aria-label="Rodinné odpoledne Ať to tu žije, 19. září od 14 hodin v hospodě U Jezu">
-            <img src="akce.png" alt="Rodinné odpoledne Ať to tu žije, 19. září od 14 hodin v hospodě U Jezu">
-          </a>
           <a class="survey-link" href="https://forms.gle/YsAUk6Z2wjyWdbZK9" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-square-poll-horizontal" aria-hidden="true"></i>Sousedská anketa</a>
         </aside>
       </div>
